@@ -4,6 +4,7 @@ public class Electrical_appliance {
     int capacity;
     boolean turn;
 
+    static int for_capacity;
     public Electrical_appliance() {
         name = "";
         capacity = 0;
@@ -13,6 +14,7 @@ public class Electrical_appliance {
     public Electrical_appliance(String name, int capacity, boolean turn) {
         this.name = name;
         this.turn = turn;
+        for_capacity = capacity;
         if (isTurn() == true)
         {
             this.capacity = capacity;
@@ -31,12 +33,17 @@ public class Electrical_appliance {
         }
     }
 
-    public void Turn()          //метод що включає прилад в розетку
+    public void Turn()          //метод що включає/виключає прилад в розетку
     {
         if (isTurn() == true) {
             setTurn(false);
-        } else {
+            setCapacity(0);
+            System.out.println(getName()+" is turned off !!!");
+        }
+        else{
             setTurn(true);
+            setCapacity(for_capacity);
+            System.out.println(getName()+" is turned on !!!");
         }
     }
 
@@ -52,9 +59,16 @@ public class Electrical_appliance {
             this.turn = turn;
         }
 
+        public void setCapacity(int capacity)
+        {
+            this.capacity = capacity;
+        }
+
         public String getName () {
             return name;
         }
+
+
 
         public int getCapacity () {
             return capacity;

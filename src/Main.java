@@ -35,7 +35,7 @@ public class Main {
     public static void main(String[] args)
     {
         ArrayList<Electrical_appliance>electrical_appliances = new ArrayList<>();
-        
+
         Electrical_appliance e1 = new Electrical_appliance("Fridhe", 500, true);
         Electrical_appliance e2 = new Electrical_appliance("Toster", 1000, true);
         Electrical_appliance e3 = new Electrical_appliance("TV", 200, false);
@@ -53,6 +53,9 @@ public class Main {
         {
             e.Display();
         }
+        System.out.println();
+        electrical_appliances.get(0).Turn();
+        electrical_appliances.get(2).Turn();
 
         Sort(electrical_appliances);
         System.out.println();
